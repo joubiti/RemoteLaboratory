@@ -11,13 +11,13 @@ The remote laboratory presented is developed with Flask, and offers a set of bas
 ![image](https://user-images.githubusercontent.com/104909670/188487500-2c0aeca4-b3f8-4bbd-9322-1c13d50ac253.png)
 
 Some of the functionalities implemented in this application are:
-- One user allowed at a time, and automatic expulsion of user when allocated time expires
+- One user allowed at a time, and automatic ejection of user when allocated time expires
 - Real-time update of laboratory status 
 - Live video stream included with the platform
 
 ## Hardware Requirements
 - Raspberry Pi 4, or any other Linux platform, to run the web server
-- A router, to set up port forwarding.
+- A router, to set up port forwarding
 - (Optional) A webcam, or a Raspi-Cam for live streaming
 - ESP32 running [MicroPython](https://pythonforundergradengineers.com/how-to-install-micropython-on-an-esp32.html)
 - Arduino board and AVRDUDE software installed on the host machine (or directly on the Raspberry Pi)
@@ -29,6 +29,9 @@ Some of the functionalities implemented in this application are:
 - [Paramiko](https://github.com/paramiko/paramiko) and [mpfshell](https://github.com/wendlers/mpfshell)
 
 ## Usage
+```
+git clone https://github.com/joubiti/RemoteLaboratory
+```
 
 To run the remote laboratory on your Raspberry Pi, first change the SSH variables and the IP addresses to their corresponding values.
 You can then use Gunicorn and Eventlet to run your production server on the Raspberry Pi:
