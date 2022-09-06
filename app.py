@@ -1,8 +1,10 @@
-from flask import Flask, render_template, session, url_for, request, redirect
+from flask import Flask, render_template, session, url_for, request, redirect, Response
 from redis import Redis
 from werkzeug.utils import secure_filename
 import serial
 import os
+import time
+import cv2
 import datetime 
 from flask_socketio import SocketIO, emit
 import paramiko
@@ -42,6 +44,23 @@ r.set('statusesp','available')
 #Define thread for WebSockets
 thread1 = Thread()
 thread1_stop_event = Event()
+
+## COMMENT THE LINES BELOW IF YOU DONT HAVE A WEBCAM/PI CAM CONNECTED TO YOUR RASPBERRY PI
+
+#Camera configuration
+camera= cv2.VideoCapture(0)
+
+def gen_frames():  
+    while True:
+        success, frame = camera.read()  # read the camera frame
+        if not success:
+            break
+        else:
+            ret, buffer = cv2.imencode('.jpg', frame)
+            frame = buffer.tobytes()
+            yield (b'--frame\r\n'
+                   b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')  
+            time.sleep(0) #very important for cooperative multitasking or else your eventlet worker won't properly function
 
 
 
@@ -149,6 +168,9 @@ def index_esp():
       return redirect(url_for('test'))
    return render_template('esp.html',async_mode=None)
 
+@app.route('/video_feed')
+def video_feed():
+   return Response(gen_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
 @app.route('/')
 def test():
