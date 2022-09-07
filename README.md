@@ -1,4 +1,4 @@
-# Remote Laboratory development for embedded development boards
+# Remote Laboratory for embedded development boards
 ![contributors](https://img.shields.io/badge/Platforms%20supported-ESP32%2C%20Arduino-orange)
 ![lastupdate](https://img.shields.io/github/last-commit/joubiti/RemoteLaboratory)
 
