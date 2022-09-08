@@ -1,4 +1,4 @@
-# Remote Laboratory development for embedded development boards
+# Remote Laboratory for embedded development boards
 ![contributors](https://img.shields.io/badge/Platforms%20supported-ESP32%2C%20Arduino-orange)
 ![lastupdate](https://img.shields.io/github/last-commit/joubiti/RemoteLaboratory)
 
@@ -64,7 +64,8 @@ You should also set up port forwarding on your router, by going to 192.168.0.1 o
 
 ## Demo
 
-![image](https://user-images.githubusercontent.com/104909670/188490475-9d127ac5-fd37-43d4-9208-792b8096b092.png)
+![image](https://user-images.githubusercontent.com/104909670/188634630-781f69e4-01ef-401e-add0-10e135851e78.png)
+
 
 
 
